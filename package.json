@@ -1,0 +1,83 @@
+{
+  "name": "@brpaz/semantic-release-helm",
+  "version": "1.0.0",
+  "description": "Semantic Release plugin for Publishing helm packages",
+  "main": "dist/index.js",
+  "author": "Bruno Paz",
+  "license": "MIT",
+  "homepage": "https://github.com/brpaz/semantic-release-helm",
+  "keywords": [
+    "helm",
+    "semantic-release"
+  ],
+  "types": "index.d.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest --passWithNoTests",
+    "prepublish": "npm run build",
+    "release": "semantic-release"
+  },
+  "dependencies": {
+    "@semantic-release/error": "^2.2.0",
+    "execa": "^4.0.3",
+    "fs-extra": "^9.0.1",
+    "gh-pages": "^3.1.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.1",
+    "@types/gh-pages": "^3.0.0",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.3",
+    "@types/node-fetch": "^2.5.7",
+    "@types/semantic-release": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.4",
+    "jest": "^24.9.0",
+    "jest-mock-extended": "^1.0.9",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "semantic-release": "^17.1.1",
+    "ts-jest": "^24.0.2",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook",
+      "pre-commit": "lint-staged && npm test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npm run lint-fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/git",
+      "@semantic-release/github",
+      "@semantic-release/npm"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
