@@ -2,9 +2,10 @@
 
 > [Semantic Release](https://github.com/semantic-release/semantic-release) plugin for Publishing [Helm](https://helm.sh/) packages.
 
-[![npm](https://img.shields.io/npm/v/@brpaz/semantic-release-helm.svg?style=for-the-badge)](https://www.npmjs.org/brpaz/semantic-release-helm)
+[![npm](https://img.shields.io/npm/v/@brpaz/semantic-release-helm.svg?style=for-the-badge)](https://www.npmjs.com/package/@brpaz/semantic-release-helm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
+
 
 ## Introduction
 
@@ -49,7 +50,7 @@ The following plugin options are supported:
 
 * **chartPath**: Required - Indicates the path to your the root of your Chart. (It should point to the directory containing the Chart.yaml file)
 * **chartRepository.branch**:  Indicates the branch where the repository will be published. Defaults to **gh-pages**
-* * **chartRepository.url**:  The public url of the GitHub Pages.
+* **chartRepository.url**:  The public url of the GitHub Pages.
 
 For more information, please see Semantic Release [documentation](https://semantic-release.gitbook.io/semantic-release/extending/plugins-list)
 
