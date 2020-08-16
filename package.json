@@ -18,7 +18,7 @@
     "watch": "tsc -w",
     "test": "jest --passWithNoTests",
     "prepublish": "npm run build",
-    "release": "semantic-release"
+    "release": "node_modules/.bin/semantic-release"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
