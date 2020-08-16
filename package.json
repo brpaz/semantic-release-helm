@@ -28,6 +28,7 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "@semantic-release/git": "^9.0.0",
     "@types/fs-extra": "^9.0.1",
     "@types/gh-pages": "^3.0.0",
     "@types/jest": "^24.0.18",
