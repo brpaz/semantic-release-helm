@@ -9,7 +9,7 @@
 
 ## Introduction
 
-This plugins allows to publish Helm charts using Semantic Release. For now the only backend available is GitHub Pages. PRs welcome for support for more backends  like [Chart Museum](https://github.com/helm/chartmuseum).
+This plugin allows to publish Helm charts using Semantic Release. For now the only backend available is GitHub Pages. PRs welcome for support for more backends  like [Chart Museum](https://github.com/helm/chartmuseum).
 
 ## Pre-Requisites
 
@@ -17,7 +17,7 @@ Before starting creating releases, you must create a new branch in your Chart re
 
 You also need to initialize a Helm Repo by commiting an index.yaml to the that branch.
 
-You can generate an empty index.yaml file using helm:
+You can generate an empty index.yaml, by running the following command in your chart repo:
 
 ```sh
 helm repo index . --url <github_pages_url>
@@ -25,7 +25,7 @@ helm repo index . --url <github_pages_url>
 
 ### Usage
 
-You can see an example repo, demonstrating this plugin in action [here](https://github.com/brpaz/helm-semantic-release-demo).
+You can see an example repo, demonstrating this plugin in action [here](https://github.com/brpaz/semantic-release-helm-demo).
 
 For integration with your chart, create a `.releaserc` file in the root of your repository with the plugin defined:
 
