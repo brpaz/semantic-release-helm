@@ -5,5 +5,6 @@ export default interface PlguinConfig {
 
 interface GitHubPagesRepository {
   url: string;
+  repository?: string;
   branch?: string;
 }

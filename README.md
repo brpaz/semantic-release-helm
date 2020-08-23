@@ -39,7 +39,8 @@ For integration with your chart, create a `.releaserc` file in the root of your 
           "chartPath": ".",
           "chartRepository": {
             "branch": "gh-pages",
-            "url": "<gh_pages_url>"
+            "url": "<gh_pages_url>",
+            "repository": "brpaz/chartRepo"
           }
         }
       ]
@@ -50,9 +51,34 @@ The following plugin options are supported:
 
 * **chartPath**: Required - Indicates the path to your the root of your Chart. (It should point to the directory containing the Chart.yaml file)
 * **chartRepository.branch**:  Indicates the branch where the repository will be published. Defaults to **gh-pages**
-* **chartRepository.url**:  The public url of the GitHub Pages.
+* **chartRepository.repository**: The repository name where the chart will be published in the format: "<username><repo>".
+* **chartRepository.url**:  The public url of the GitHub Pages. This is used to fetch the current chart index.
 
 For more information, please see Semantic Release [documentation](https://semantic-release.gitbook.io/semantic-release/extending/plugins-list)
+
+For an example to use with GitHub Actions:
+
+```yaml
+name: CI
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          extra_plugins: |
+            @brpaz/semantic-release-helm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+
 
 ## Author
 
@@ -66,11 +92,17 @@ For more information, please see Semantic Release [documentation](https://semant
 
 Contributions, issues and feature requests are welcome!
 
-## Show your support
+## 💛 Support the project
 
-If this project have been useful for you, I would be grateful to have your support.
+If this project was useful to you in some form, I would be glad to have your support.  It will help to keep the project alive and to have more time to work on Open Source.
 
-Give a ⭐️ to the project, or just:
+The sinplest form of support is to give a ⭐️ to this repo.
+
+You can also contribute with [GitHub Sponsors](https://github.com/sponsors/brpaz).
+
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor%20Me-red?style=for-the-badge)](https://github.com/sponsors/brpaz)
+
+Or if you prefer a one time donation to the project, you can simple:
 
 <a href="https://www.buymeacoffee.com/Z1Bu6asGV" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
